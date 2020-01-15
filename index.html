@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New York Times Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    header {
+        height: 200px;
+        /* width: 600px; */
+        background-color:#02145A;
+        color: white;
+        margin: 0 auto;
+        text-align: center;
+        padding: 75px 0 0 0;        
+    }
+    
+    body {
+        margin: 0 auto;
+        padding: 0 0 25px 0;
+    }
+
+    #search-parameters {
+        border: 1px solid gray;
+    }
+
+    #results {
+        border: 1px solid gray;
+
+    }
+    
+    </style>
+
+</head>
+<body>
+    <header class="container rounded">
+        <h1>
+            New York Times Search
+        </h1>
+    </header>
+    <br><br>
+    <div class="container rounded" id="search-parameters">
+        <h1>Search Parameters</h1>
+        <h3>Search Term:</h3>
+        <input type="text" id="search-term"><br><br>
+        <h3>Number of Records to Retrieve:</h3>
+        <select>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+    
+        <!-- <input type="text" id="num-of-records"><br><br> -->
+        <h3>Start Year (Optional):</h3>
+        <input type="text" id="start-year"><br><br>
+        <h3>End Year (Optional):</h3>
+        <input type="text" id="end-year"><br><br>
+
+        <button type="button" class="btn btn-primary" id="search">Search</button>
+        <button type="button" class="btn btn-primary" id="clear-form">Clear</button>
+        <br><br>
+
+
+
+
+    </div>
+    <br><br>
+    <div class="container rounded" id="results">
+        <h1>Top Articles</h1>
+
+
+
+    </div>
+
+
+    <script>
+    $(document).ready(function(){
+
+        $("#search").on("click", function() {
+
+        
+            var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="; 
+            var keyword = $("#search-term").val();
+
+            console.log(keyword);
+            var apiKey = "&api-key=4gaXx43Yl23NFM7oZsdNGWDgwN7bI8aY";
+            // var queryURL = url+keyword+apiKey;
+
+            if ($("#start-year").val() > 0) {
+                url += "begin_date=" + $("#start-year").val(); 
+            } 
+            
+            if ($("#end-year").val() > 0) {
+                url += "end_date=" + $("#end-year").val() ;
+            }
+
+            url = url + apiKey
+            console.log(url);
+        });
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function(response) {
+            var results = response.data
+        });
+
+
+
+
+
+
+
+
+
+
+
+    })
+    
+    
+    
+    
+    </script>
+
+
+</body>
+</html>
