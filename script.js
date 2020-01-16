@@ -37,7 +37,7 @@ $(document).ready(function(){
         method: "GET"
     }).then(function(response) {
         console.log(response);
-    
+     
     var results = response.response.docs;
     for (var i = 0; i < $("#num-of-results").val(); i++) {
         var newsDiv = $("<div>");
