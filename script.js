@@ -28,7 +28,7 @@ $(document).ready(function(){
     if ($("#end-year").val() > 0) {
         url += "&end_date=" + $("#end-year").val() + "1231";
     } 
-    
+     
     url = url + apiKey
     console.log(url);
 
