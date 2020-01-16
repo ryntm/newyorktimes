@@ -7,32 +7,8 @@
     <title>New York Times Search</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style>
-    header {
-        height: 200px;
-        /* width: 600px; */
-        background-color:#02145A;
-        color: white;
-        margin: 0 auto;
-        text-align: center;
-        padding: 75px 0 0 0;        
-    }
+    <link rel="stylesheet" href="style.css">
     
-    body {
-        margin: 0 auto;
-        padding: 0 0 25px 0;
-    }
-
-    #search-parameters {
-        border: 1px solid gray;
-    }
-
-    #results {
-        border: 1px solid gray;
-
-    }
-    
-    </style>
 
 </head>
 <body>
@@ -47,11 +23,9 @@
         <h3>Search Term:</h3>
         <input type="text" id="search-term"><br><br>
         <h3>Number of Records to Retrieve:</h3>
-        <select>
+        <select id="num-of-results">
             <option value="5">5</option>
             <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
         </select>
     
         <!-- <input type="text" id="num-of-records"><br><br> -->
@@ -69,62 +43,18 @@
 
     </div>
     <br><br>
-    <div class="container rounded" id="results">
-        <h1>Top Articles</h1>
+    <div class="container rounded" id="articles">
+        <div id="article-header-div"><h1>Top Articles</h1></div>
+        <div id="clear-articles-div"><button type="button" class="btn btn-primary" id="clear-articles">Clear Articles</button></buttons></div>
+        <div id="results">
 
+        </divs>
 
 
     </div>
 
 
-    <script>
-    $(document).ready(function(){
-
-        $("#search").on("click", function() {
-
-        
-            var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q="; 
-            var keyword = $("#search-term").val();
-
-            console.log(keyword);
-            var apiKey = "&api-key=4gaXx43Yl23NFM7oZsdNGWDgwN7bI8aY";
-            // var queryURL = url+keyword+apiKey;
-
-            if ($("#start-year").val() > 0) {
-                url += "begin_date=" + $("#start-year").val(); 
-            } 
-            
-            if ($("#end-year").val() > 0) {
-                url += "end_date=" + $("#end-year").val() ;
-            }
-
-            url = url + apiKey
-            console.log(url);
-        });
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response) {
-            var results = response.data
-        });
-
-
-
-
-
-
-
-
-
-
-
-    })
-    
-    
-    
-    
-    </script>
+    <script src="script.js"></script>
 
 
 </body>

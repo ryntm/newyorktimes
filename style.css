@@ -1,0 +1,33 @@
+header {
+    height: 200px;
+    /* width: 600px; */
+    background-color:#02145A;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: 75px 0 0 0;        
+}
+
+body {
+    margin: 0 auto;
+    padding: 0 0 25px 0;
+}
+
+#search-parameters {
+    border: 1px solid gray;
+}
+
+#articles {
+    border: 1px solid gray;
+
+}
+
+#clear-articles-div {
+    margin-top: 9px;
+    float: right; 
+    display: inline-block;
+}
+
+#article-header-div {
+    display: inline-block;
+}
