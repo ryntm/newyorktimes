@@ -31,4 +31,8 @@ body {
 #article-header-div {
     display: inline-block;
 } 
+
+#num-of-results {
+    width: 185px;
+}
  
